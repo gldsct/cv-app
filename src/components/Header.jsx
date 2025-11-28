@@ -5,12 +5,12 @@ const navListItems = [
     {
         id: self.crypto.randomUUID(),
         name: "Home",
-        reference: "#"
+        reference: "#hero"
     },
     {
         id: self.crypto.randomUUID(),
         name: "Create",
-        reference: "#create"
+        reference: "#create-cv"
     },
     {
         id: self.crypto.randomUUID(),
@@ -24,7 +24,7 @@ function Header ({ label }) {
         <header>
             <h1>CV<span className = "header-span">App</span></h1>
             <nav aria-label = {label} className = "main-nav">
-                <ul>
+                <ul className = "nav-links">
                     {navListItems.map((item) => {
                             return (
                                 <li key = {item.id} className = "nav-item">
