@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > * {
+    margin: 0.25rem;
+}
+
+.header-span {
+    color: var(--secondary-color-alt);
+}
+
+.nav-links {
+    display: flex;
+    gap: 0 clamp(0.5rem, 0.25rem + 2vw, 2rem);
+}
+
+.nav-item > a, .header-button {
+    padding: 0.25rem 1rem;
+    border-radius: 16px;
+    border: 0;
+    transition: all 1s ease-out;
+}
+
+.nav-item > a {
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-color);
+}
+
+.nav-item > a:hover, .nav-item > a:focus {
+    background-color: black;
+    color: white;
+}
+
+.header-button {
+    background-color: var(--secondary-color-alt);
+    color: white;
+}
+
+.header-button:hover, .header-button:focus {
+    background-color: black;
+}
