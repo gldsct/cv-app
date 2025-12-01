@@ -1,0 +1,35 @@
+#hero {
+    background-color: #91ABB9;
+    color: var(--primary-color);
+    border-top-left-radius: var(--border-radius-size);
+    border-top-right-radius: var(--border-radius-size);
+    margin: 0.5rem 0;
+    padding: 1rem clamp(1rem, 0.5rem + 2vw, 3rem);
+}
+
+.hero-emphasized-text {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+
+@media (min-width: 520px) {
+    #hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #hero > p {
+        max-inline-size: 25ch;
+        text-align: center;
+        margin-right: clamp(1rem, -6rem + 22vw, 24rem);
+    }
+}
+
+@media (min-width: 840px) {
+    #hero > p {
+        max-inline-size: 75ch;
+        font-size: 1.15rem;
+    }
+}
