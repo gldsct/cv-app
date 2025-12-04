@@ -9,9 +9,35 @@ import "../styles/Form.css";
 
 function Form () {
     const [personalDetails, setPersonalDetails] = useState({});
+    const [skills, setSkills] = useState([
+        {
+            id: self.crypto.randomUUID(),
+            name: "",
+            desc: ""
+        }
+    ]);
 
     function onDetailsChange (event) {
         setPersonalDetails({...personalDetails, [event.target.name]: event.target.value});    
+    }
+
+    function addSkill () {
+        setSkills([...skills, {
+            id: self.crypto.randomUUID(),
+            name: "",
+            desc: ""
+        }]);
+    }
+
+    function deleteSkill (id) {
+        setSkills(skills.filter((skill) => skill.id !== id));
+    }
+    
+    function onSkillChange (id, field, value) {
+        setSkills(skills.map(skill => {
+            if (skill.id !== id) return {...skill};
+            return {...skill, [field]: value};
+        }));
     }
     
     return (
@@ -27,6 +53,13 @@ function Form () {
                         <li><Input type = "tel" label = "Contact Number: " id = "number" name = "user-phone" placeholder = "123-456-7890" onChange = {onDetailsChange} /></li>
                         <li><Input label = "Website: " id = "website" name = "user-website" placeholder = "github.com/name" onChange = {onDetailsChange} /></li>
                     </ul>
+                </section>
+
+                <section className = "personal-skills">
+                    <h3>Skills</h3>
+                    <Button className = "add-field-button" text = "Add Skill" onClick = {addSkill} />
+
+                    <Skills skills = {skills} deleteSkill = {deleteSkill} onSkillChange = {onSkillChange} />
                 </section>
             </form>
         </section>
