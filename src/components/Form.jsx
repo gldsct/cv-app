@@ -97,6 +97,11 @@ function Form () {
             return {...edu, [field]: value};
         }));
     }
+
+    function onFormSubmit (event) {
+        event.preventDefault();
+        console.log("Form submitted.");
+    }
     
     return (
         <section id = "create-cv">
@@ -132,6 +137,11 @@ function Form () {
                     <Button className = "add-field-button" text = "Add Education" onClick = {addEducation} />
 
                     <Education education = {education} deleteEducation = {deleteEducation} onEducationChange = {onEducationChange} />
+                </section>
+
+                <section className = "form-buttons">
+                    <Button className = "submit-button" text = "Submit" type = "submit" onClick = {onFormSubmit} />
+                    <Button className = "reset-button" text = "Reset" type = "reset" />
                 </section>
             </form>
         </section>
