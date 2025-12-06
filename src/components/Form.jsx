@@ -25,6 +25,14 @@ function Form () {
             end: ""
         }
     ]);
+    const [education, setEducation] = useState([
+        {
+            id: self.crypto.randomUUID(),
+            name: "",
+            desc: "",
+            graduated: ""
+        }
+    ]);
 
     function onDetailsChange (event) {
         setPersonalDetails({...personalDetails, [event.target.name]: event.target.value});    
@@ -69,6 +77,26 @@ function Form () {
             return {...exp, [field]: value};
         }));
     }
+
+    function addEducation () {
+        setEducation([...education, {
+            id: self.crypto.randomUUID(),
+            name: "",
+            desc: "",
+            graduated: ""
+        }]);
+    }
+
+    function deleteEducation (id) {
+        setEducation(education.filter(edu => edu.id !== id));
+    }
+
+    function onEducationChange (id, field, value) {
+        setEducation(education.map(edu => {
+            if (edu.id !== id) return {...edu};
+            return {...edu, [field]: value};
+        }));
+    }
     
     return (
         <section id = "create-cv">
@@ -97,6 +125,13 @@ function Form () {
                     <Button className = "add-field-button" text = "Add Experience" onClick = {addExperience} />
 
                     <Experience experience = {experience} deleteExperience = {deleteExperience} onExperienceChange = {onExperienceChange} />
+                </section>
+
+                <section className = "personal-education">
+                    <h3>Education</h3>
+                    <Button className = "add-field-button" text = "Add Education" onClick = {addEducation} />
+
+                    <Education education = {education} deleteEducation = {deleteEducation} onEducationChange = {onEducationChange} />
                 </section>
             </form>
         </section>
