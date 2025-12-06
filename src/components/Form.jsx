@@ -16,6 +16,15 @@ function Form () {
             desc: ""
         }
     ]);
+    const [experience, setExperience] = useState([
+        {
+            id: self.crypto.randomUUID(),
+            name: "",
+            desc: "",
+            start: "",
+            end: ""
+        }
+    ]);
 
     function onDetailsChange (event) {
         setPersonalDetails({...personalDetails, [event.target.name]: event.target.value});    
@@ -39,6 +48,27 @@ function Form () {
             return {...skill, [field]: value};
         }));
     }
+
+    function addExperience () {
+        setExperience([...experience, {
+            id: self.crypto.randomUUID(),
+            name: "",
+            desc: "",
+            start: "",
+            end: ""
+        }]);
+    }
+
+    function deleteExperience (id) {
+        setExperience(experience.filter(exp => exp.id !== id));
+    }
+
+    function onExperienceChange (id, field, value) {
+        setExperience(experience.map(exp => {
+            if (exp.id !== id) return {...exp};
+            return {...exp, [field]: value};
+        }));
+    }
     
     return (
         <section id = "create-cv">
@@ -60,6 +90,13 @@ function Form () {
                     <Button className = "add-field-button" text = "Add Skill" onClick = {addSkill} />
 
                     <Skills skills = {skills} deleteSkill = {deleteSkill} onSkillChange = {onSkillChange} />
+                </section>
+
+                <section className = "personal-experience">
+                    <h3>Experience</h3>
+                    <Button className = "add-field-button" text = "Add Experience" onClick = {addExperience} />
+
+                    <Experience experience = {experience} deleteExperience = {deleteExperience} onExperienceChange = {onExperienceChange} />
                 </section>
             </form>
         </section>
