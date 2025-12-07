@@ -33,6 +33,7 @@ function Form () {
             graduated: ""
         }
     ]);
+    const [modalDisplay, setModalDisplay] = useState(false);
 
     function onDetailsChange (event) {
         setPersonalDetails({...personalDetails, [event.target.name]: event.target.value});    
@@ -101,6 +102,9 @@ function Form () {
     function onFormSubmit (event) {
         event.preventDefault();
         console.log("Form submitted.");
+        setModalDisplay(true);
+        const dialog = document.querySelector("form dialog");
+        dialog.showModal();
     }
     
     return (
@@ -138,6 +142,8 @@ function Form () {
 
                     <Education education = {education} deleteEducation = {deleteEducation} onEducationChange = {onEducationChange} />
                 </section>
+
+                <Modal details = {personalDetails} skills = {skills} education = {education} experience = {experience} modalDisplay = {setModalDisplay} />
 
                 <section className = "form-buttons">
                     <Button className = "submit-button" text = "Submit" type = "submit" onClick = {onFormSubmit} />
