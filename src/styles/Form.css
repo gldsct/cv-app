@@ -1,0 +1,76 @@
+#create-cv {
+    background-color: var(--secondary-bg-color);
+    margin-top: -0.5rem;
+    padding: 1rem clamp(1rem, 0.5rem + 2vw, 3rem);
+}
+
+#create-cv > h2 {
+    text-align: center;
+}
+
+form > section > h3 {
+    text-decoration: underline;
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+}
+
+input, textarea {
+    min-width: 250px;
+    border-radius: var(--border-radius-size);
+    border: 1px solid black;
+    padding: 0.25rem 1rem;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+form > section > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0rem clamp(1rem, 0.5rem + 2vw, 3rem);
+}
+
+form > section > ul li > * {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.delete-field-button {
+    margin-left: auto;
+    background-color: var(--secondary-bg-color);
+    color: #FF7F7F;
+    border: 0;
+    border-bottom: 1px solid #FF7F7F;
+    font-weight: 600;
+}
+
+.add-field-button {
+    background-color: #228B22;
+    color: white;
+    border: 0;
+    border-radius: var(--border-radius-size);
+    padding: 0.5rem 1.25rem;
+}
+
+.form-buttons {
+    text-align: center;
+}
+
+.form-buttons > button {
+    margin: 0 0.5rem;
+    padding: 0.25rem 1rem;
+    border-radius: var(--border-radius-size);
+    border: 0;
+}
+
+.submit-button {
+    background-color: var(--secondary-color-alt);
+    color: white;
+}
+
+.reset-button {
+    background-color: #B3B3B3;
+}
