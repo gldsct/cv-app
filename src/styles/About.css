@@ -1,0 +1,6 @@
+#about {
+    background-color: #91ABB9;
+    border-bottom-left-radius: var(--border-radius-size);
+    border-bottom-right-radius: var(--border-radius-size);
+    padding: 1rem clamp(1rem, 0.5rem + 2vw, 3rem);
+}
