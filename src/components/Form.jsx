@@ -28,8 +28,8 @@ function Form () {
     const [education, setEducation] = useState([
         {
             id: self.crypto.randomUUID(),
-            name: "",
-            desc: "",
+            school: "",
+            degree: "",
             graduated: ""
         }
     ]);
@@ -82,8 +82,8 @@ function Form () {
     function addEducation () {
         setEducation([...education, {
             id: self.crypto.randomUUID(),
-            name: "",
-            desc: "",
+            school: "",
+            degree: "",
             graduated: ""
         }]);
     }
